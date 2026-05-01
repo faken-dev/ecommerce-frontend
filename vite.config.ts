@@ -1,21 +1,22 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+
   define: {
     global: 'window',
   },
+
   server: {
     port: 5173,
     proxy: {
-      '/oauth2': {
+      '/api': {
         target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false,
       },
-      '/api': {
+      '/oauth2': {
         target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false,
@@ -23,7 +24,12 @@ export default defineConfig({
       '/ws': {
         target: 'http://localhost:8080',
         ws: true,
+        changeOrigin: true,
       },
     },
+  },
+
+  build: {
+    outDir: 'dist',
   },
 })
