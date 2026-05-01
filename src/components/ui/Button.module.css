@@ -1,0 +1,121 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  user-select: none;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.btn:hover::before { opacity: 1; }
+.btn:active::before { opacity: 0; }
+
+/* ─── Sizes ─────────────────────────────────────────────────────────────────── */
+.sm {
+  padding: 7px 14px;
+  font-size: 0.8125rem;
+  height: 34px;
+}
+
+.md {
+  padding: 10px 22px;
+  font-size: 0.9375rem;
+  height: 44px;
+}
+
+.lg {
+  padding: 13px 30px;
+  font-size: 1.0625rem;
+  height: 54px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ─── Variants ──────────────────────────────────────────────────────────────── */
+.primary {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border-color: var(--accent-primary);
+}
+
+.primary::before {
+  background: var(--accent-primary-hover);
+}
+
+.secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-hover);
+  background: var(--bg-card);
+}
+
+.secondary::before {
+  background: var(--bg-hover);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+
+.ghost::before {
+  background: var(--bg-hover);
+}
+
+.danger {
+  background: transparent;
+  color: #ff5252;
+  border-color: rgba(255, 82, 82, 0.35);
+}
+
+.danger::before {
+  background: rgba(255, 82, 82, 0.08);
+}
+
+/* ─── Spinner ───────────────────────────────────────────────────────────────── */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ─── Icons ──────────────────────────────────────────────────────────────────── */
+.iconLeft, .iconRight {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+}

@@ -1,0 +1,106 @@
+.page {
+  padding: 2rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.sub {
+  color: var(--text-muted);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.statCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.statVal {
+  display: block;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-primary);
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.zoneSection {
+  margin-bottom: 3rem;
+}
+
+.zoneTitle {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  border-left: 4px solid var(--accent-primary);
+  padding-left: 1rem;
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.slot {
+  background: var(--bg-card);
+  border: 2px dashed var(--border);
+  padding: 1.5rem;
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.occupied {
+  border-style: solid;
+  border-color: var(--accent-primary);
+  background: rgba(var(--accent-rgb), 0.05);
+}
+
+.slotCode {
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
+
+.slotProduct {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.assignBtn {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.assignBtn:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}

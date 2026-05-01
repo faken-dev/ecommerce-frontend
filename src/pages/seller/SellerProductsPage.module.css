@@ -1,0 +1,51 @@
+.page { display: flex; flex-direction: column; gap: 24px; }
+.pageHeader { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.pageTitle { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.03em; }
+.pageSub { margin-top: 4px; font-size: 0.875rem; color: var(--text-muted); }
+.btnPrimary { padding: 10px 20px; background: #f5c842; color: var(--text-inverse); border: none; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: all var(--transition-fast); white-space: nowrap; }
+.btnPrimary:hover { background: #ffd84d; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(245,200,66,0.3); }
+.btnGhost { padding: 10px 20px; background: transparent; color: var(--text-secondary); border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: all var(--transition-fast); }
+.btnGhost:hover { border-color: var(--border-hover); color: var(--text-primary); }
+.filters { display: flex; gap: 12px; }
+.searchInput { flex: 1; padding: 10px 16px; background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text-primary); font-size: 0.875rem; outline: none; transition: border-color var(--transition-fast); }
+.searchInput:focus { border-color: #f5c842; box-shadow: 0 0 0 3px rgba(245,200,66,0.12); }
+.searchInput::placeholder { color: var(--text-muted); }
+/* Product grid */
+.productsGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.productCard { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; transition: all var(--transition-base); }
+.productCard:hover { border-color: rgba(245,200,66,0.25); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.cardImage { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--bg-elevated); }
+.cardImage img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+.productCard:hover .cardImage img { transform: scale(1.05); }
+.overlayBadge { position: absolute; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.875rem; color: var(--text-secondary); }
+.outOfStock { position: absolute; top: 12px; right: 12px; font-size: 0.6875rem; font-weight: 700; padding: 3px 10px; border-radius: var(--radius-full); background: rgba(255,82,82,0.15); color: #ff5252; border: 1px solid rgba(255,82,82,0.3); }
+.cardBody { padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.cardTitle { font-family: var(--font-heading); font-size: 0.9375rem; font-weight: 600; color: var(--text-primary); }
+.cardDesc { font-size: 0.8125rem; color: var(--text-muted); line-height: 1.4; }
+.cardMeta { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+.cardPrice { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: #f5c842; }
+.cardStock { font-size: 0.8125rem; font-weight: 500; }
+.cardActions { display: flex; gap: 8px; margin-top: 12px; align-items: center; }
+.btnEdit { flex: 1; padding: 8px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.8125rem; font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: all var(--transition-fast); }
+.btnEdit:hover { border-color: var(--border-hover); color: var(--text-primary); }
+.btnToggle { flex: 1; padding: 8px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.8125rem; font-weight: 600; color: var(--text-secondary); cursor: pointer; transition: all var(--transition-fast); }
+.btnToggle:hover { border-color: rgba(245,200,66,0.3); color: #f5c842; }
+.btnDelete { width: 36px; height: 36px; padding: 0; display: flex; align-items: center; justify-content: center; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-md); font-size: 0.875rem; cursor: pointer; transition: all var(--transition-fast); }
+.btnDelete:hover { color: #ff5252; border-color: rgba(255,82,82,0.35); background: rgba(255,82,82,0.06); }
+.emptyState { grid-column: 1/-1; text-align: center; padding: 48px; color: var(--text-muted); }
+/* Modal */
+.modalOverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 200; display: flex; align-items: center; justify-content: center; }
+.modal { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px; width: 560px; max-width: calc(100vw - 48px); box-shadow: var(--shadow-lg); }
+.modalTitle { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 24px; }
+.formGrid { display: flex; flex-direction: column; gap: 16px; }
+.formInput { width: 100%; padding: 10px 14px; background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius-md); color: var(--text-primary); font-size: 0.875rem; outline: none; transition: border-color var(--transition-fast); }
+.formInput:focus { border-color: #f5c842; box-shadow: 0 0 0 3px rgba(245,200,66,0.12); }
+.modalActions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 24px; }
+
+.formSection { background: rgba(255,255,255,0.03); padding: 16px; border-radius: var(--radius-md); border: 1px solid var(--border); }
+.sectionTitle { font-size: 0.875rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+.formGrid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.formGrid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+.variantRow { display: grid; grid-template-columns: 1fr 1fr 1fr 40px; gap: 12px; margin-bottom: 8px; align-items: center; }
+
+@media (max-width: 768px) { .pageHeader { flex-direction: column; align-items: flex-start; } .productsGrid { grid-template-columns: 1fr; } }

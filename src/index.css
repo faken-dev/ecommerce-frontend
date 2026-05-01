@@ -1,0 +1,137 @@
+/* Fonts are loaded via index.html for better performance and CORS compatibility */
+
+:root {
+  /* ── Core Colors ── */
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-elevated: #0f0f0f;
+  --bg-hover: rgba(255, 255, 255, 0.04);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d4;
+  --text-muted: #a3a3a3;
+  --text-inverse: #000000;
+  
+  --accent-primary: #ff4d00;
+  --accent-primary-muted: rgba(255, 77, 0, 0.1);
+  --accent-secondary: #00f2ff;
+  
+  --border: rgba(255, 255, 255, 0.08);
+  --border-muted: rgba(255, 255, 255, 0.04);
+  --border-accent: rgba(255, 77, 0, 0.3);
+  
+  /* ── Semantic States ── */
+  --status-success: #00ff95;
+  --status-warning: #ffb300;
+  --status-error: #ff2d2d;
+  --status-info: #00b2ff;
+
+  /* ── System ── */
+  --font-main: 'Outfit', 'Inter', sans-serif;
+  --font-vn: 'Be Vietnam Pro', sans-serif;
+  --font-heading: 'Archivo', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Space Mono', monospace;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --transition-premium: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  --glow-orange: 0 0 20px rgba(255, 77, 0, 0.3);
+}
+
+/* ── Global Grid Overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.4) 100%);
+  z-index: 9998;
+  pointer-events: none;
+}
+
+/* ── Base Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Use Be Vietnam Pro for Vietnamese for a modern and clean look */
+html[lang="vi"] body {
+  font-family: var(--font-vn);
+}
+
+html[lang="vi"] h1,
+html[lang="vi"] h2,
+html[lang="vi"] h3,
+html[lang="vi"] h4,
+html[lang="vi"] h5,
+html[lang="vi"] h6,
+html[lang="vi"] button {
+  font-family: var(--font-heading);
+}
+
+html[lang="vi"] .mono,
+html[lang="vi"] [class*="mono"],
+html[lang="vi"] [class*="Tag"],
+html[lang="vi"] [class*="count"] {
+  font-family: var(--font-mono) !important;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+}
+
+/* ── Utilities ── */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(255, 77, 0, 0.5);
+}

@@ -1,0 +1,19 @@
+.page { display: flex; flex-direction: column; gap: 28px; }
+.header { display: flex; align-items: center; justify-content: space-between; }
+.title { font-family: var(--font-heading); font-size: 1.625rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.03em; }
+.name { color: #f5c842; }
+.sub { margin-top: 4px; font-size: 0.875rem; color: var(--text-muted); }
+.statsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.statCard { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 8px; border-top: 2px solid var(--accent); transition: transform var(--transition-fast), border-color var(--transition-fast); }
+.statCard:hover { transform: translateY(-2px); border-color: var(--border-hover); }
+.statTop { display: flex; align-items: center; justify-content: space-between; }
+.statLabel { font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; }
+.statDelta { font-size: 0.75rem; font-weight: 700; color: #82f5a8; background: rgba(130,245,168,0.1); padding: 2px 8px; border-radius: var(--radius-full); }
+.statValue { font-family: var(--font-heading); font-size: 1.625rem; font-weight: 800; color: var(--text-primary); }
+.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+.cardHeader { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.cardTitle { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+.seeAll { font-size: 0.875rem; font-weight: 600; color: #f5c842; text-decoration: none; transition: color var(--transition-fast); }
+.btnPrimary { padding: 10px 20px; background: #f5c842; color: var(--text-inverse); border: none; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: all var(--transition-fast); white-space: nowrap; }
+.btnPrimary:hover { background: #ffd84d; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(245,200,66,0.3); }
+@media (max-width: 1024px) { .statsGrid { grid-template-columns: repeat(2, 1fr); } }

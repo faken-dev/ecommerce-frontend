@@ -1,0 +1,101 @@
+{
+  "home": {
+    "hero_tag": "BẢN GIỚI HẠN // 2026",
+    "hero_title": "KỸ NGHỆ",
+    "hero_title_accent": "HOÀN HẢO.",
+    "hero_desc": "Chúng tôi tuyển chọn và chế tác những vật phẩm tinh xảo nhất thế giới. Từ kiệt tác đồng hồ đến công nghệ sinh học cấp phòng thí nghiệm.",
+    "btn_catalog": "KHÁM PHÁ DANH MỤC",
+    "btn_heritage": "DI SẢN CỦA CHÚNG TÔI",
+    "search_placeholder": "TÌM KIẾM CƠ SỞ DỮ LIỆU...",
+    "stats": {
+      "origin": "NGUỒN GỐC CHỨNG NHẬN",
+      "trace": "KHẢ NĂNG TRUY XUẤT",
+      "logistics": "HẬU CẦN TOÀN CẦU",
+      "trust": "NIỀM TIN KHÁCH HÀNG"
+    }
+  },
+  "products": {
+    "title": "DANH MỤC CHÍNH.",
+    "view_all": "XEM TẤT CẢ",
+    "filter_all": "TẤT CẢ",
+    "filter_chrono": "ĐỒNG HỒ",
+    "filter_bio": "SINH HỌC",
+    "btn_buy": "BẮT ĐẦU MUA HÀNG"
+  },
+  "home_hub": {
+    "item_1": { "label": "01 // NGUỒN GỐC", "value": "THỤY SĨ", "desc": "Các nút xử lý dữ liệu an toàn đặt tại vùng núi cao." },
+    "item_2": { "label": "02 // BẢO MẬT", "value": "MÃ HÓA V3", "desc": "Giao thức xác thực lượng tử thế hệ mới đang hoạt động." },
+    "item_3": { "label": "03 // HẬU CẦN", "value": "KẾT NỐI TOÀN CẦU", "desc": "Giám sát chuỗi cung ứng thời gian thực qua 12 trung tâm." },
+    "item_4": { "label": "04 // CHẤT LƯỢNG", "value": "TIÊU CHUẨN A++", "desc": "Được chứng nhận về độ bền và hiệu suất cho mọi thiết bị." }
+  },
+  "home_featured": {
+    "tag": "DANH MỤC GỐC // 0.1",
+    "title": "SẢN PHẨM NỔI BẬT",
+    "btn_view_all": "XEM TẤT CẢ"
+  },
+  "home_contact": {
+    "tag": "GIAO THỨC LIÊN LẠC",
+    "title": "THIẾT LẬP",
+    "title_accent": "KẾT NỐI",
+    "desc": "Mạng lưới của chúng tôi đã sẵn sàng nhận tín hiệu. Các đường truyền mã hóa đang mở cho các yêu cầu ưu tiên cao.",
+    "form": {
+      "name": "DANH TÍNH (TÊN)",
+      "email": "ĐỊA CHỈ (EMAIL)",
+      "message": "NỘI DUNG (LỜI NHẮN)",
+      "btn_send": "BẮT ĐẦU TRUYỀN TIN"
+    }
+  },
+  "search": {
+    "title": "KẾT QUẢ CHO",
+    "all_products": "TẤT CẢ SẢN PHẨM",
+    "count_label": "SẢN PHẨM //",
+    "sort": {
+      "label": "SẮP XẾP",
+      "newest": "MỚI NHẤT",
+      "price_asc": "GIÁ: THẤP ĐẾN CAO",
+      "price_desc": "GIÁ: CAO ĐẾN THẤP",
+      "rating": "ĐÁNH GIÁ TỐT NHẤT"
+    },
+    "filters": {
+      "title": "BỘ LỌC",
+      "reset": "XÓA TẤT CẢ",
+      "category": "DANH MỤC",
+      "price_range": "KHOẢNG GIÁ (VND)",
+      "price_from": "Từ",
+      "price_to": "Đến",
+      "rating": "ĐÁNH GIÁ",
+      "rating_up": "& trở lên",
+      "in_stock": "Chỉ xem hàng còn sẵn",
+      "apply": "ÁP DỤNG",
+      "all_categories": "Tất cả sản phẩm"
+    },
+    "loading": "Đang tìm kiếm sản phẩm...",
+    "empty_title": "Không tìm thấy kết quả",
+    "empty_desc": "Thử thay đổi từ khóa hoặc bộ lọc để tìm thấy thứ bạn cần."
+  },
+  "contact": {
+    "tag": "KẾT NỐI",
+    "title": "LIÊN HỆ",
+    "title_accent": "VỚI CHÚNG TÔI.",
+    "desc": "Bạn có thắc mắc cụ thể hoặc đang tìm kiếm một giải pháp riêng biệt? Các chuyên gia của chúng tôi đã sẵn sàng hỗ trợ bạn.",
+    "info": {
+      "address": "ĐỊA CHỈ",
+      "email": "EMAIL",
+      "hotline": "HOTLINE",
+      "hours": "LÀM VIỆC",
+      "success_title": "GỬI THÀNH CÔNG",
+      "success_desc": "Lời nhắn của bạn đã được gửi đi. Chúng tôi sẽ phản hồi trong thời gian sớm nhất.",
+      "btn_another": "GỬI THÊM LỜI NHẮN",
+      "name_placeholder": "Ví dụ: Nguyễn Văn A",
+      "email_placeholder": "email@example.com",
+      "message_placeholder": "Nhập lời nhắn của bạn tại đây..."
+    },
+    "form": {
+      "name": "HỌ VÀ TÊN",
+      "email": "ĐỊA CHỈ EMAIL",
+      "subject": "LOẠI YÊU CẦU",
+      "message": "TIN NHẮN",
+      "btn_send": "GỬI YÊU CẦU"
+    }
+  }
+}

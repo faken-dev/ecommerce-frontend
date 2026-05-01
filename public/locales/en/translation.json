@@ -1,0 +1,101 @@
+{
+  "home": {
+    "hero_tag": "LTD_EDITION // 2026",
+    "hero_title": "CRAFTING",
+    "hero_title_accent": "PERFECTION.",
+    "hero_desc": "We curate and engineer the world's most sophisticated essentials. From horological masterpieces to laboratory-grade bio-tech.",
+    "btn_catalog": "EXPLORE CATALOG",
+    "btn_heritage": "OUR HERITAGE",
+    "search_placeholder": "SEARCH_UNITS_DATABASE...",
+    "stats": {
+      "origin": "CERTIFIED_ORIGIN",
+      "trace": "TRACEABILITY",
+      "logistics": "GLOBAL_LOGISTICS",
+      "trust": "CLIENT_TRUST"
+    }
+  },
+  "products": {
+    "title": "MASTER CATALOG.",
+    "view_all": "VIEW ALL ITEMS",
+    "filter_all": "ALL_UNITS",
+    "filter_chrono": "CHRONO",
+    "filter_bio": "BIO_TECH",
+    "btn_buy": "INITIALIZE PURCHASE"
+  },
+  "home_hub": {
+    "item_1": { "label": "01 // ORIGIN", "value": "SWISS_CORE", "desc": "Secure data processing nodes located in high-altitude zones." },
+    "item_2": { "label": "02 // AUTH", "value": "ENCRYPT_V3", "desc": "Next-generation quantum-resistant authentication protocols active." },
+    "item_3": { "label": "03 // LOGISTICS", "value": "GLOBAL_NODES", "desc": "Real-time supply chain monitoring across 12 hyper-local hubs." },
+    "item_4": { "label": "04 // RATING", "value": "A++_GRADE", "desc": "Certified durability and performance benchmarks for all hardware." }
+  },
+  "home_featured": {
+    "tag": "MASTER_CATALOG // 0.1",
+    "title": "FEATURED_UNITS",
+    "btn_view_all": "VIEW_ALL_CATALOG"
+  },
+  "home_contact": {
+    "tag": "COMMS_PROTOCOL",
+    "title": "ESTABLISH",
+    "title_accent": "CONNECTION",
+    "desc": "Our neural network is ready to receive your transmission. Encrypted communication lines are open for high-priority inquiries.",
+    "form": {
+      "name": "IDENTIFICATION (NAME)",
+      "email": "COMMS_ENDPOINT (EMAIL)",
+      "message": "TRANSMIT_DATA (MESSAGE)",
+      "btn_send": "INITIATE_TRANSMISSION"
+    }
+  },
+  "search": {
+    "title": "RESULTS FOR",
+    "all_products": "ALL PRODUCTS",
+    "count_label": "UNITS FOUND //",
+    "sort": {
+      "label": "SORT_BY",
+      "newest": "NEWEST_ENTRIES",
+      "price_asc": "PRICE: LOW TO HIGH",
+      "price_desc": "PRICE: HIGH TO LOW",
+      "rating": "TOP_RATED_ONLY"
+    },
+    "filters": {
+      "title": "FILTER_PARAMETERS",
+      "reset": "PURGE_ALL",
+      "category": "CATEGORIES",
+      "price_range": "PRICE_RANGE (VND)",
+      "price_from": "Min",
+      "price_to": "Max",
+      "rating": "RATING",
+      "rating_up": "& up",
+      "in_stock": "In Stock Only",
+      "apply": "APPLY_FILTERS",
+      "all_categories": "All Products"
+    },
+    "loading": "SEARCHING_UNITS...",
+    "empty_title": "NO RESULTS FOUND",
+    "empty_desc": "Adjust your search parameters or keywords to find what you need."
+  },
+  "contact": {
+    "tag": "CONNECT",
+    "title": "GET IN",
+    "title_accent": "TOUCH.",
+    "desc": "Have a specific inquiry or looking for a bespoke solution? Our specialists are ready to assist you.",
+    "info": {
+      "address": "ADDRESS",
+      "email": "EMAIL",
+      "hotline": "HOTLINE",
+      "hours": "UPTIME",
+      "success_title": "TRANSMISSION_COMPLETE",
+      "success_desc": "Your message has been successfully routed. We will respond shortly.",
+      "btn_another": "SEND_ANOTHER_PACKET",
+      "name_placeholder": "Example: John Doe",
+      "email_placeholder": "email@example.com",
+      "message_placeholder": "Enter your message here..."
+    },
+    "form": {
+      "name": "FULL_NAME",
+      "email": "EMAIL_ADDRESS",
+      "subject": "INQUIRY_TYPE",
+      "message": "MESSAGE",
+      "btn_send": "SEND REQUEST"
+    }
+  }
+}
