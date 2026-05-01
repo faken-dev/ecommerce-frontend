@@ -1,5 +1,9 @@
 {
   "rewrites": [
+    {
+      "source": "/oauth2/:path*",
+      "destination": "https://ecommerce-backend-w9g7.onrender.com//oauth2/:path*"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

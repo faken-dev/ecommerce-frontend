@@ -3,7 +3,6 @@ import axios, {
   type InternalAxiosRequestConfig,
 } from 'axios'
 import { API_BASE_URL, ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '../lib/constants'
-import type { ApiResponse, AuthTokens } from '../types'
 
 const axiosClient = axios.create({
   baseURL: API_BASE_URL,
