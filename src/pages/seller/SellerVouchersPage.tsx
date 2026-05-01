@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { voucherApi, VOUCHER_TYPE_LABELS, VOUCHER_STATUS_LABELS } from '../../api/voucherApi'
+import { voucherApi, VOUCHER_STATUS_LABELS } from '../../api/voucherApi'
 import { useToast } from '../../hooks/useToast'
 import type { VoucherDTO, CreateVoucherRequest } from '../../types'
 import { Badge } from '../../components/admin/AdminUI'
@@ -15,7 +15,7 @@ export function SellerVouchersPage() {
   const [statusFilter, setStatusFilter] = useState('ALL')
   const [vouchers, setVouchers] = useState<VoucherDTO[]>([])
   const [loading, setLoading] = useState(false)
-  const [totalElements, setTotalElements] = useState(0)
+  const [, setTotalElements] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
 
   const [showCreate, setShowCreate] = useState(false)
@@ -66,8 +66,8 @@ export function SellerVouchersPage() {
       maxDiscountAmount: rawData.maxDiscountAmount ? Number(rawData.maxDiscountAmount) : undefined,
       maxUsageTotal: Number(rawData.maxUsageTotal) || -1,
       maxUsagePerUser: Number(rawData.maxUsagePerUser) || 1,
-      validFrom: rawData.validFrom ? rawData.validFrom as string : undefined,
-      validTo: rawData.validTo ? rawData.validTo as string : undefined,
+      validFrom: rawData.validFrom ? String(rawData.validFrom) : new Date().toISOString(),
+      validTo: rawData.validTo ? String(rawData.validTo) : new Date().toISOString(),
     }
 
       await voucherApi.createVoucher(payload)
@@ -124,7 +124,7 @@ export function SellerVouchersPage() {
                 <td><Badge type="info">{v.type === 'PERCENTAGE' ? `${v.discountValue}%` : formatCurrency(v.discountValue)}</Badge></td>
                 <td>{formatCurrency(v.minOrderAmount)}</td>
                 <td>{v.currentUsageCount} / {v.maxUsageTotal < 0 ? '∞' : v.maxUsageTotal}</td>
-                <td style={{ fontSize: '0.875rem' }}>{new Date(v.validTo).toLocaleDateString('vi-VN')}</td>
+                <td style={{ fontSize: '0.875rem' }}>{new Date(v.validTo || '').toLocaleDateString('vi-VN')}</td>
                 <td>
                    <Badge type={v.status === 'ACTIVE' ? 'success' : 'neutral'}>{VOUCHER_STATUS_LABELS[v.status] || v.status}</Badge>
                 </td>
@@ -233,11 +233,11 @@ export function SellerVouchersPage() {
                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                       <div>
                          <div style={{ fontSize: '0.8rem', color: '#adb5bd' }}>Bắt đầu</div>
-                         <div style={{ fontWeight: 500 }}>{new Date(selectedVoucher.validFrom).toLocaleDateString('vi-VN')}</div>
+                         <div style={{ fontWeight: 500 }}>{new Date(selectedVoucher.validFrom || '').toLocaleDateString('vi-VN')}</div>
                       </div>
                       <div>
                          <div style={{ fontSize: '0.8rem', color: '#adb5bd' }}>Kết thúc</div>
-                         <div style={{ fontWeight: 500 }}>{new Date(selectedVoucher.validTo).toLocaleDateString('vi-VN')}</div>
+                         <div style={{ fontWeight: 500 }}>{new Date(selectedVoucher.validTo || '').toLocaleDateString('vi-VN')}</div>
                       </div>
                    </div>
                 </div>

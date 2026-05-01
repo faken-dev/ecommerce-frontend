@@ -5,13 +5,6 @@ import * as THREE from 'three'
 
 /* ─── Circuit board line ────────────────────────────────────────────────────── */
 function CircuitLine({ start, end, progress }: { start: THREE.Vector3; end: THREE.Vector3; progress: number }) {
-  const points = useMemo(() => {
-    const mid = start.clone().lerp(end, 0.5)
-    mid.y += (Math.random() - 0.5) * 1.5
-    const curve = new THREE.QuadraticBezierCurve3(start, mid, end)
-    return curve.getPoints(20)
-  }, [start, end])
-
   const curve = useMemo(() => {
     const mid = start.clone().lerp(end, 0.5)
     mid.y += (Math.random() - 0.5) * 1.5
@@ -25,7 +18,8 @@ function CircuitLine({ start, end, progress }: { start: THREE.Vector3; end: THRE
   const geometry = new THREE.BufferGeometry().setFromPoints(sliced)
 
   return (
-    <line geometry={geometry}>
+    <line>
+      <primitive object={geometry} attach="geometry" />
       <lineBasicMaterial color="#c8f04c" linewidth={2} transparent opacity={0.6 + progress * 0.4} />
     </line>
   )

@@ -16,7 +16,7 @@ export function AdminVouchersPage() {
   const [statusFilter, setStatusFilter] = useState('ALL')
   const [vouchers, setVouchers] = useState<VoucherDTO[]>([])
   const [loading, setLoading] = useState(false)
-  const [totalElements, setTotalElements] = useState(0)
+  const [, setTotalElements] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
 
   const [showCreate, setShowCreate] = useState(false)
@@ -38,7 +38,6 @@ export function AdminVouchersPage() {
       .then(res => {
         if (res.data?.success && res.data.data) {
           const data = res.data.data;
-          // Handle both cases: data is an array or data is an object with content
           setVouchers(Array.isArray(data) ? data : (data as any).content || []);
           
           if (res.data.page) {
@@ -53,7 +52,6 @@ export function AdminVouchersPage() {
 
   useEffect(() => {
     fetchVouchers()
-    // Fetch products and categories for scope selection
     import('../../api/catalogApi').then(({ catalogApi }) => {
       catalogApi.listAllAdmin(0, 100).then(res => {
         if (res.data?.success) {
@@ -120,14 +118,17 @@ export function AdminVouchersPage() {
     setLoading(true)
     try {
       const res = await voucherApi.createVoucher({
-        ...payload,
+        code: String(payload.code),
+        name: String(payload.name),
+        type: payload.type as any,
+        scope: payload.scope as any,
         discountValue,
         minOrderAmount: Number(payload.minOrderAmount) || 0,
-        maxDiscountAmount: payload.maxDiscountAmount ? Number(payload.maxDiscountAmount) : null,
+        maxDiscountAmount: payload.maxDiscountAmount ? Number(payload.maxDiscountAmount) : undefined,
         maxUsageTotal: Number(payload.maxUsageTotal) || -1,
         maxUsagePerUser: Number(payload.maxUsagePerUser) || 1,
-        validFrom: payload.validFrom ? new Date(payload.validFrom as string).toISOString() : null,
-        validTo: payload.validTo ? new Date(payload.validTo as string).toISOString() : null,
+        validFrom: payload.validFrom ? new Date(payload.validFrom as string).toISOString() : new Date().toISOString(),
+        validTo: payload.validTo ? new Date(payload.validTo as string).toISOString() : new Date().toISOString(),
         applicableProductIds: payload.scope === 'SPECIFIC_PRODUCTS' ? selectedIds : [],
         applicableCategoryIds: payload.scope === 'SPECIFIC_CATEGORIES' ? selectedIds : [],
         requiresCollection: payload.requiresCollection === 'on',

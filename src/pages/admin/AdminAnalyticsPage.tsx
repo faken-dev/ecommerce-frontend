@@ -8,7 +8,7 @@ import { Icon } from '../../components/common/Icon'
 import { Card } from '../../components/admin/AdminUI'
 
 export function AdminAnalyticsPage() {
-  const { user, hasPermission } = useAuthStore()
+  const { hasPermission } = useAuthStore()
   const [stats, setStats] = useState<DashboardStatsDTO | null>(null)
   const [salesData, setSalesData] = useState<Record<string, number>>({})
   const [loading, setLoading] = useState(true)

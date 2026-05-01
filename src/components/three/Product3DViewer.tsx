@@ -64,7 +64,7 @@ export function Product3DViewer({ modelUrl, className }: Product3DViewerProps) {
             zoom={0.7}
             polar={[-0.1, Math.PI / 4]}
           >
-            <Stage environment="city" intensity={0.6} contactShadow={false}>
+            <Stage environment="city" intensity={0.6} shadows={false}>
               {modelUrl ? (
                 <Model url={modelUrl} />
               ) : (

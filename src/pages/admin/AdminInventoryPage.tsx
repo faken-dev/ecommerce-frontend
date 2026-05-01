@@ -38,7 +38,7 @@ export function AdminInventoryPage() {
 
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
-  const [totalElements, setTotalElements] = useState(0)
+  const [, setTotalElements] = useState(0)
 
   useEffect(() => {
     fetchData()

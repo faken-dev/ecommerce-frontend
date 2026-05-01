@@ -10,7 +10,7 @@ export function SellerProductsPage() {
   const { add: addToast } = useToast()
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
-  const [totalElements, setTotalElements] = useState(0)
+  const [, setTotalElements] = useState(0)
   const [products, setProducts] = useState<ProductSummaryDTO[]>([])
   const [categories, setCategories] = useState<CategoryDTO[]>([])
   const [loading, setLoading] = useState(true)
@@ -91,7 +91,7 @@ export function SellerProductsPage() {
     return result
   }
 
-  const flattenedCategories = flattenCategories(categories)
+  // flattenedCategories is computed but unused in UI
 
   const handleDelete = async (productId: string) => {
     if (!confirm('Xóa sản phẩm này?')) return

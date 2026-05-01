@@ -438,6 +438,7 @@ export interface VoucherDTO {
   applicableCategoryIds?: string[]
   sellerId?: string
   remainingUsage: number
+  requiresCollection: boolean
   createdAt: string
 }
 
@@ -471,7 +472,9 @@ export interface CreateVoucherRequest {
   maxUsagePerUser?: number
   validFrom: string
   validTo: string
+  applicableProductIds?: string[]
   applicableCategoryIds?: string[]
+  requiresCollection?: boolean
 }
 
 // ─── Notification ─────────────────────────────────────────────────────────────
@@ -522,7 +525,7 @@ export interface ReviewCommentDTO {
 
 export interface PostReviewRequest {
   productId: string
-  orderId: string
+  orderId?: string
   rating: number
   content: string
   images?: string[]

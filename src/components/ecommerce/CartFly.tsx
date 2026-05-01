@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback, useMemo } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import { motion, useAnimation, useReducedMotion } from 'framer-motion'
 import styles from './CartFly.module.css'
 

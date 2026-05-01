@@ -39,7 +39,7 @@ export function VerifyEmailPage() {
     try {
       await authApi.verifyOtp({
         email: user?.email || '',
-        otp,
+        code: otp,
         purpose: 'EMAIL_VERIFICATION'
       })
 

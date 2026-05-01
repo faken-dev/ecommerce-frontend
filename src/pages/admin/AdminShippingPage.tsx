@@ -28,7 +28,7 @@ const formatCurrency = (v: number) => new Intl.NumberFormat('vi-VN', { style: 'c
 
 export default function AdminShippingPage() {
   const [shipments, setShipments] = useState<ShipmentResponse[]>([])
-  const [loading, setLoading] = useState(true)
+  const [, setLoading] = useState(true)
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
   const { add: addToast } = useToast()

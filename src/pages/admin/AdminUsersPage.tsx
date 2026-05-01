@@ -4,7 +4,7 @@ import { useAuthStore } from '../../store/authStore'
 import { PERMISSIONS, ROUTES } from '../../lib/constants'
 import { userApi } from '../../api/userApi'
 import { useToast } from '../../hooks/useToast'
-import { Badge, ImageUpload } from '../../components/admin/AdminUI'
+import { Badge } from '../../components/admin/AdminUI'
 import { Icon } from '../../components/common/Icon'
 import styles from './AdminProductsPage.module.css' // Using shared premium styles
 
@@ -18,7 +18,7 @@ export function AdminUsersPage() {
   const [page, setPage] = useState(1)
   const [selectedRole, setSelectedRole] = useState('ALL')
   const [users, setUsers] = useState<any[]>([])
-  const [totalElements, setTotalElements] = useState(0)
+  const [, setTotalElements] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
   const [loading, setLoading] = useState(false)
 

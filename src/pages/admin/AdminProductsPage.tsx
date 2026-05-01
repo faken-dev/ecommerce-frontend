@@ -16,7 +16,7 @@ export function AdminProductsPage() {
   const [categories, setCategories] = useState<CategoryDTO[]>([])
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
-  const [totalElements, setTotalElements] = useState(0)
+  const [, setTotalElements] = useState(0)
   const [loading, setLoading] = useState(true)
   const [showModal, setShowModal] = useState(false)
   const [editProduct, setEditProduct] = useState<any | null>(null)

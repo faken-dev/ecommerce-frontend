@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { catalogApi, type CategoryDTO } from '../../api/catalogApi'
 import { useToast } from '../../hooks/useToast'
-import { Card, Badge, ImageUpload, TreeSelect } from '../../components/admin/AdminUI'
+import { Card, Badge, TreeSelect } from '../../components/admin/AdminUI'
 import { Icon } from '../../components/common/Icon'
 import styles from './AdminProductsPage.module.css' // Reuse the same modern styles
 
@@ -143,7 +143,7 @@ export function AdminCategoriesPage() {
           <td><code className={styles.slug}>{cat.slug}</code></td>
           <td style={{ maxWidth: 300, fontSize: '0.875rem', color: 'var(--text-secondary)' }}>{cat.description || '—'}</td>
           <td style={{ textAlign: 'center' }}>
-            <Badge type={cat.productCount > 0 ? 'info' : 'neutral'}>{cat.productCount ?? 0}</Badge>
+            <Badge type={(cat.productCount ?? 0) > 0 ? 'info' : 'neutral'}>{cat.productCount ?? 0}</Badge>
           </td>
           <td style={{ textAlign: 'center', fontWeight: 600 }}>{cat.sortOrder}</td>
           <td>

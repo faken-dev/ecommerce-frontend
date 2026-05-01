@@ -7,7 +7,7 @@ import { useAuthStore } from '../../store/authStore'
 import { useToast } from '../../hooks/useToast'
 import { catalogApi, type ProductDetailDTO } from '../../api/catalogApi'
 import { inventoryApi, type InventoryItemDTO } from '../../api/inventoryApi'
-import { CartFly, CartIcon, useCartFly } from '../../components/ecommerce/CartFly'
+import { CartFly, useCartFly } from '../../components/ecommerce/CartFly'
 import { Product3DViewer } from '../../components/three/Product3DViewer'
 import styles from './ProductDetailPage.module.css'
 import { ReviewSection } from '../../components/ecommerce/ReviewSection'
@@ -23,7 +23,7 @@ export function ProductDetailPage() {
   const [loading, setLoading] = useState(true)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [viewMode, setViewMode] = useState<'2D' | '3D'>('2D')
-  const { trigger, cartCount, handleAddToCart, handleComplete } = useCartFly()
+  const { trigger, handleAddToCart, handleComplete } = useCartFly()
   const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlistStore()
   const { isAuthenticated } = useAuthStore()
   const { add: addToast } = useToast()

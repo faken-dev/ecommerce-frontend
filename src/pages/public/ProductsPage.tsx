@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { BentoGrid } from '../../components/ecommerce/BentoGrid'
-import { CartFly, CartIcon, useCartFly } from '../../components/ecommerce/CartFly'
+import { CartFly, useCartFly } from '../../components/ecommerce/CartFly'
 import { catalogApi, type ProductSummaryDTO, type CategoryDTO } from '../../api/catalogApi'
 import styles from './ProductsPage.module.css'
 
@@ -12,7 +12,7 @@ function ShowcaseBanner({ products }: { products: ProductSummaryDTO[] }) {
   return (
     <motion.section className={styles.showcase}>
       <div className={styles.showcaseGrid}>
-        {products.slice(0, 6).map((p, i) => (
+        {products.slice(0, 6).map((p) => (
           <div 
             key={p.id} 
             className={styles.showcaseCell} 
@@ -51,7 +51,7 @@ const defaultFilters: Filters = {
 export function ProductsPage() {
   const { t } = useTranslation();
   const [filters, setFilters] = useState<Filters>(defaultFilters)
-  const { trigger, cartCount, handleAddToCart, handleComplete } = useCartFly()
+  const { trigger, handleAddToCart, handleComplete } = useCartFly()
   const [filtered, setFiltered] = useState<ProductSummaryDTO[]>([])
   const [categories, setCategories] = useState<CategoryDTO[]>([])
   const [loading, setLoading] = useState(true)

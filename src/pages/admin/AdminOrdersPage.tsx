@@ -3,7 +3,6 @@ import { useAuthStore } from '../../store/authStore'
 import { PERMISSIONS } from '../../lib/constants'
 import { orderApi, ORDER_STATUS_LABELS, ORDER_STATUS_COLORS } from '../../api/orderApi'
 import { shippingApi } from '../../api/shippingApi'
-import { catalogApi } from '../../api/catalogApi'
 import { useSettingsStore } from '../../store/settingsStore'
 import { exportInvoicePDF } from '../../lib/invoiceUtils'
 import { useToast } from '../../hooks/useToast'
@@ -22,7 +21,7 @@ export function AdminOrdersPage() {
   const [page, setPage] = useState(1)
   const [statusFilter, setStatusFilter] = useState('ALL')
   const [orders, setOrders] = useState<OrderSummaryDTO[]>([])
-  const [totalElements, setTotalElements] = useState(0)
+  const [, setTotalElements] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
   const [loading, setLoading] = useState(false)
   const { settings } = useSettingsStore()
@@ -35,11 +34,8 @@ export function AdminOrdersPage() {
   const [statusReason, setStatusReason] = useState('')
   
   const [currentShipment, setCurrentShipment] = useState<ShipmentResponse | null>(null)
-  const [shippingLoading, setShippingLoading] = useState(false)
-  const [selectedCarrier, setSelectedCarrier] = useState('GHN')
 
   const canUpdate = hasPermission(PERMISSIONS.UPDATE_ORDER_STATUS)
-  const canManageShipping = hasPermission('shipping:manage')
 
   const fetchOrders = () => {
     setLoading(true)
@@ -114,29 +110,6 @@ export function AdminOrdersPage() {
     } finally { setLoading(false) }
   }
 
-  const handleCreateShipment = async () => {
-    if (!detailOrder) return
-    setShippingLoading(true)
-    try {
-      const res = await shippingApi.createShipment({
-        orderId: detailOrder.id,
-        recipientName: "Khách hàng " + detailOrder.buyerId.substring(0,4),
-        phone: "0900000000",
-        street: "Địa chỉ hệ thống",
-        district: "Quận 1",
-        city: "Hồ Chí Minh",
-        province: "Hồ Chí Minh",
-        country: "Vietnam"
-      }, selectedCarrier)
-
-      if (res.data?.success) {
-        addToast({ type: 'success', message: 'Tạo vận đơn thành công' })
-        setCurrentShipment(res.data.data)
-      }
-    } catch (err: any) {
-      addToast({ type: 'error', message: err.response?.data?.message || 'Tạo vận đơn thất bại' })
-    } finally { setShippingLoading(false) }
-  }
 
   return (
     <div className={styles.page}>

@@ -28,7 +28,7 @@ interface RegisterErrors {
 
 export function RegisterPage() {
   const navigate = useNavigate()
-  const { login } = useAuthStore()
+  const {} = useAuthStore()
   const { add: addToast } = useToast()
 
   const [form, setForm] = useState<RegisterForm>({

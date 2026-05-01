@@ -73,6 +73,8 @@ export const PERMISSIONS = {
   MANAGE_NOTIFICATIONS: 'notification:manage',
   // CMS
   MANAGE_CMS: 'cms:manage',
+  // Shipping
+  MANAGE_SHIPPING: 'shipping:manage',
   // Analytics
   VIEW_ANALYTICS: 'analytics:read',
 } as const
@@ -118,6 +120,7 @@ export const ROUTES = {
   VERIFY_EMAIL: '/verify-email',
 
   // Buyer (card layout)
+  BUYER_DASHBOARD: '/',
   BUYER_PROFILE: '/buyer/profile',
   BUYER_ADDRESSES: '/buyer/addresses',
   BUYER_ORDERS: '/buyer/orders',

@@ -1,5 +1,5 @@
 import axiosClient from './axiosClient'
-import type { ApiResponse } from '../types'
+import type { } from '../types'
 
 export interface WishlistItem {
   productId: string

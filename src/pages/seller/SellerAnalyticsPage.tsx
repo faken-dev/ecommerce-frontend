@@ -1,11 +1,10 @@
-import { useState } from 'react'
+import React from 'react'
 import { useAuthStore } from '../../store/authStore'
 import styles from '../admin/AdminDashboardPage.module.css'
 import tableStyles from '../admin/AdminTablePage.module.css'
 
 export function SellerAnalyticsPage() {
   const { user } = useAuthStore()
-  const [loading] = useState(false)
 
   const formatCurrency = (amount: number) => {
     return `₫${new Intl.NumberFormat('vi-VN').format(amount)}`

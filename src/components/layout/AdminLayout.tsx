@@ -3,14 +3,14 @@ import { Outlet, Link, useLocation, Navigate, useNavigate } from 'react-router-d
 import { useAuthStore } from '../../store/authStore'
 import { useToast } from '../../hooks/useToast'
 import { authApi } from '../../api/authApi'
-import { ROUTES, PERMISSIONS, ROLES } from '../../lib/constants'
+import { ROUTES, PERMISSIONS, ROLES, type Permission } from '../../lib/constants'
 import { Icon } from '../../components/common/Icon'
 import styles from './AdminLayout.module.css'
 
 interface NavItem {
   label: string
   path: string
-  permission?: string
+  permission?: Permission
   icon: React.ReactNode
 }
 

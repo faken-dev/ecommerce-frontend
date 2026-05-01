@@ -19,7 +19,7 @@ export function AdminPaymentsPage() {
   const [statusFilter, setStatusFilter] = useState('ALL')
   const [payments, setPayments] = useState<PaymentDTO[]>([])
   const [loading, setLoading] = useState(false)
-  const [totalElements, setTotalElements] = useState(0)
+  const [, setTotalElements] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
 
   const [showDetail, setShowDetail] = useState(false)

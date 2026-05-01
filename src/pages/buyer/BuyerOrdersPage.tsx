@@ -200,7 +200,7 @@ export function BuyerOrdersPage() {
           </div>
         )}
         
-        {orders.map((order, idx) => {
+        {orders.map((order) => {
           const cfg = statusConfig[order.status] ?? { color: '#888', label: order.status }
           return (
             <motion.div key={order.id} className={styles.orderCard} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>

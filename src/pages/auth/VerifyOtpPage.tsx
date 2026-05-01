@@ -43,8 +43,9 @@ export function VerifyOtpPage() {
       }
 
       // If backend returned tokens (Auto-login for registration/login purpose)
-      if (response.data.tokens) {
-        const { user, tokens } = response.data
+      const data = response.data as any
+      if (data.tokens) {
+        const { user, tokens } = data
         sessionStorage.setItem('ec_access_token', tokens.accessToken)
         sessionStorage.setItem('ec_refresh_token', tokens.refreshToken)
         login(user)
@@ -63,9 +64,8 @@ export function VerifyOtpPage() {
         })
         navigate(ROUTES.LOGIN)
       }
-    } catch (err: unknown) {
-      const axiosErr = err as { response?: { data?: { message?: string } } }
-      setError(axiosErr?.response?.data?.message || 'Mã OTP không chính xác hoặc đã hết hạn.')
+    } catch (err: any) {
+      setError(err?.response?.data?.message || 'Mã OTP không chính xác hoặc đã hết hạn.')
     } finally {
       setIsLoading(false)
     }

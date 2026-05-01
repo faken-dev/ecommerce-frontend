@@ -1,8 +1,8 @@
-import { Outlet, Link, useLocation, Navigate, useNavigate } from 'react-router-dom'
+import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/authStore'
 import { useToast } from '../../hooks/useToast'
 import { authApi } from '../../api/authApi'
-import { ROUTES } from '../../lib/constants'
+import { ROUTES, REFRESH_TOKEN_KEY } from '../../lib/constants'
 import styles from './BuyerLayout.module.css'
 
 const NAV_ITEMS = [
@@ -19,7 +19,10 @@ export function BuyerLayout() {
   const location = useLocation()
 
   const handleLogout = async () => {
-    try { await authApi.logout() } catch { /* ignore */ }
+    try {
+      const refreshToken = sessionStorage.getItem(REFRESH_TOKEN_KEY) || ''
+      await authApi.logout({ refreshToken })
+    } catch { /* ignore */ }
     logout()
     addToast({ type: 'success', message: 'Đã đăng xuất!' })
     navigate(ROUTES.LOGIN)
