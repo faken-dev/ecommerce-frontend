@@ -6,7 +6,13 @@ import { useAuthStore } from '../store/authStore';
 import { useNotificationStore } from '../store/notificationStore';
 import { useToast } from './useToast';
 
-const WS_URL = import.meta.env.VITE_WS_URL || '/ws';
+const getWsUrl = () => {
+  if (import.meta.env.VITE_WS_URL) return import.meta.env.VITE_WS_URL;
+  if (import.meta.env.VITE_API_BASE_URL) return `${import.meta.env.VITE_API_BASE_URL}/ws`;
+  return '/ws';
+};
+
+const WS_URL = getWsUrl();
 
 export const useWebSocket = () => {
   const isAuthenticated = useAuthStore(state => state.isAuthenticated);

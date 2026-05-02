@@ -1,6 +1,4 @@
-export const API_BASE_URL =
-  (import.meta.env.VITE_API_BASE_URL as string) ||
-  '/api/v1'
+export const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL || ''}/api/v1`
 
 export const ACCESS_TOKEN_KEY = 'ec_access_token'
 export const REFRESH_TOKEN_KEY = 'ec_refresh_token'

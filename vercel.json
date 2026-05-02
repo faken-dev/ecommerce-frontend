@@ -2,7 +2,19 @@
   "rewrites": [
     {
       "source": "/oauth2/:path*",
-      "destination": "https://ecommerce-backend-w9g7.onrender.com//oauth2/:path*"
+      "destination": "https://ecommerce-backend-w9g7.onrender.com/oauth2/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://ecommerce-backend-w9g7.onrender.com/api/:path*"
+    },
+    {
+      "source": "/ws",
+      "destination": "https://ecommerce-backend-w9g7.onrender.com/ws"
+    },
+    {
+      "source": "/ws/:path*",
+      "destination": "https://ecommerce-backend-w9g7.onrender.com/ws/:path*"
     },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
