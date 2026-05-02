@@ -2,25 +2,47 @@ import React from 'react'
 import { useAuthStore } from '../../store/authStore'
 import styles from '../admin/AdminDashboardPage.module.css'
 import tableStyles from '../admin/AdminTablePage.module.css'
-
+import { sellerApi } from '../../api/sellerApi'
 export function SellerAnalyticsPage() {
   const { user } = useAuthStore()
+  const [salesData, setSalesData] = React.useState<{ date: string; value: number }[]>([])
+  const [loading, setLoading] = React.useState(true)
+  const [stats, setStats] = React.useState<any>(null)
 
   const formatCurrency = (amount: number) => {
     return `₫${new Intl.NumberFormat('vi-VN').format(amount)}`
   }
 
-  // Mock data for seller
-  const salesData = [
-    { date: '15/04', value: 1200000 },
-    { date: '16/04', value: 850000 },
-    { date: '17/04', value: 2100000 },
-    { date: '18/04', value: 1500000 },
-    { date: '19/04', value: 3200000 },
-    { date: '20/04', value: 2800000 },
-    { date: '21/04', value: 1900000 },
-  ]
-  const maxSales = Math.max(...salesData.map(d => d.value))
+  React.useEffect(() => {
+    const loadAnalytics = async () => {
+      try {
+        const [salesRes, statsRes] = await Promise.all([
+          sellerApi.getSalesAnalytics(7),
+          sellerApi.getDashboardStats()
+        ])
+
+        if (salesRes.data?.success) {
+          const raw = salesRes.data.data
+          const formatted = Object.entries(raw).map(([date, val]) => ({
+            date: new Date(date).toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit' }),
+            value: val
+          }))
+          setSalesData(formatted)
+        }
+
+        if (statsRes.data?.success) {
+          setStats(statsRes.data.data)
+        }
+      } catch (error) {
+        console.error('Failed to load analytics:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadAnalytics()
+  }, [])
+
+  const maxSales = salesData.length > 0 ? Math.max(...salesData.map(d => d.value)) : 0
 
   return (
     <div className={styles.page}>
@@ -32,20 +54,24 @@ export function SellerAnalyticsPage() {
       </div>
 
       <div className={styles.statsGrid}>
-        {[
-          { label: 'Doanh thu tuần này', value: formatCurrency(13550000), delta: '+15.2%', color: 'var(--accent-primary)' },
-          { label: 'Đơn hàng mới', value: '42', delta: '+5%', color: '#82c4f5' },
-          { label: 'Lượt xem sản phẩm', value: '1,840', delta: '+22%', color: '#f5c842' },
-          { label: 'Tỷ lệ chuyển đổi', value: '2.3%', delta: '-0.5%', color: '#f87171' },
-        ].map((s) => (
-          <div key={s.label} className={styles.statCard} style={{ '--accent': s.color } as React.CSSProperties}>
-            <div className={styles.statTop}>
-              <span className={styles.statLabel}>{s.label}</span>
-              <span className={styles.statDelta} style={{ color: s.delta.startsWith('+') ? '#4caf50' : '#ff5252' }}>{s.delta}</span>
+        {loading ? (
+           Array(4).fill(0).map((_, i) => <div key={i} className={styles.statCard} style={{ opacity: 0.5, height: 100 }} />)
+        ) : (
+          [
+            { label: 'Doanh thu tháng này', value: formatCurrency(stats?.monthlyRevenue ?? 0), delta: `${stats?.monthlyRevenueDelta.toFixed(1) || 0}%`, color: 'var(--accent-primary)' },
+            { label: 'Đơn hàng mới', value: stats?.monthlyOrders ?? 0, delta: `${stats?.monthlyOrdersDelta.toFixed(1) || 0}%`, color: '#82c4f5' },
+            { label: 'Sản phẩm', value: stats?.totalProducts ?? 0, delta: '', color: '#f5c842' },
+            { label: 'Đơn chờ xử lý', value: stats?.pendingOrders ?? 0, delta: '', color: '#f87171' },
+          ].map((s) => (
+            <div key={s.label} className={styles.statCard} style={{ '--accent': s.color } as React.CSSProperties}>
+              <div className={styles.statTop}>
+                <span className={styles.statLabel}>{s.label}</span>
+                {s.delta && <span className={styles.statDelta} style={{ color: s.delta.startsWith('+') || parseFloat(s.delta) >= 0 ? '#4caf50' : '#ff5252' }}>{s.delta}</span>}
+              </div>
+              <span className={styles.statValue}>{s.value}</span>
             </div>
-            <span className={styles.statValue}>{s.value}</span>
-          </div>
-        ))}
+          ))
+        )}
       </div>
 
       <div className={tableStyles.card}>

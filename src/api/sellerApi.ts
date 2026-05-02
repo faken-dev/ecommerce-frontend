@@ -13,4 +13,7 @@ export interface SellerDashboardStats {
 export const sellerApi = {
   getDashboardStats: () =>
     axiosClient.get<ApiResponse<SellerDashboardStats>>('/seller/dashboard/stats'),
+  
+  getSalesAnalytics: (days: number = 7) =>
+    axiosClient.get<ApiResponse<Record<string, number>>>('/seller/dashboard/analytics/sales', { params: { days } }),
 }
